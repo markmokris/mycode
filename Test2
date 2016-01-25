@@ -1,0 +1,30 @@
+
+
+#create 2d array image
+image = [[0,0,0,0],[0,1,0,0],[0,0,0,0]]
+b = Marshal.load( Marshal.dump(image) )
+       
+b.each_with_index do |row, row_index|               #Loop 1
+    row.each_with_index do |pixel, column_index|    #Loop 2
+           
+    if b[row_index][column_index] = 1               #if
+                                
+     if column_index <= image[row_index].length - 1 #Okay to Add 1 to column_index?
+        image[row_index][column_index+1]=1
+        end
+        
+     if if column_index > 0                         #Okay to Subtract 1 from column_index?         
+        image[row_index][column_index-1]=1
+        end
+        
+     if row_index    <= b.length - 1                #Okay to Add 1 to row_index?
+        image[row_index+1][column_index]=1          
+        end
+        
+     if row_index    > 0
+        image[row_index-1][column_index]=1          #Okay to Subtract 1 from row_index?
+        end
+        
+    end                                             #if End
+   end                                              #Loop 2 End
+end                                                 #Loop 1 End
